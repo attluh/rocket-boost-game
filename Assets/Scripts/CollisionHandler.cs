@@ -7,6 +7,8 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] AudioClip successSFX;
     [SerializeField] AudioClip crashSFX;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
     AudioSource audioSource;
     bool isTransitioning = false;
 
@@ -68,6 +70,8 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         GetComponent<Movement>().enabled = false;
 
+        crashParticles.Play();
+
         audioSource.Stop();
         audioSource.PlayOneShot(crashSFX);
 
@@ -80,6 +84,8 @@ public class CollisionHandler : MonoBehaviour
         // Prevent player from moving on the completed level
         isTransitioning = true;
         GetComponent<Movement>().enabled = false;
+
+        successParticles.Play();
 
         audioSource.Stop();
         audioSource.PlayOneShot(successSFX);
