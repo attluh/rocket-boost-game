@@ -26,23 +26,13 @@ public class Movement : MonoBehaviour
 
     private void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space)) {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-
-            if (!mainBooster.isPlaying)
-            {
-                mainBooster.Play();
-            }
-
-            body.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Thrusting();
         }
         else
         {
-            audioSource.Stop();
-            mainBooster.Stop();
+            StopThrust();
         }
     }
 
@@ -51,16 +41,53 @@ public class Movement : MonoBehaviour
         // Prefer going right
         if (Input.GetKey(KeyCode.D))
         {
-            applyRotation(-rotationThrust, leftBooster);
+            RotateRight();
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            applyRotation(rotationThrust, rightBooster);
+            RotateLeft();
         }
-        else{
-            rightBooster.Stop();
-            leftBooster.Stop();
+        else
+        {
+            StopRotating();
         }
+    }
+
+    private void Thrusting()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+
+        if (!mainBooster.isPlaying)
+        {
+            mainBooster.Play();
+        }
+
+        body.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+    }
+
+    private void StopThrust()
+    {
+        audioSource.Stop();
+        mainBooster.Stop();
+    }
+
+    private void RotateRight()
+    {
+        applyRotation(-rotationThrust, leftBooster);
+    }
+
+    private void RotateLeft()
+    {
+        applyRotation(rotationThrust, rightBooster);
+    }
+
+    private void StopRotating()
+    {
+        rightBooster.Stop();
+        leftBooster.Stop();
     }
 
     private void applyRotation(float rotationThisFrame, ParticleSystem particlesThisFrame)
