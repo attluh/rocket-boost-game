@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,17 +12,35 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashParticles;
     AudioSource audioSource;
     bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update() {
+        // Cheaters Only Club
+        RespondToCheatCodes();
+    }
+
+    private void RespondToCheatCodes()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled;
+        }
+        else if (Input.GetKey(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         // Prevent any collision actions if the player
         // is transitioning between levels
-        if (isTransitioning) { return; }
+        if (isTransitioning || collisionDisabled) { return; }
 
         switch (other.gameObject.tag)
         {
