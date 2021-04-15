@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelLoadDelay: 2
   successSFX: {fileID: 8300000, guid: 86cb7ec9d91b3bb4d93b6ac288d33472, type: 3}
-  deathSFX: {fileID: 8300000, guid: 44ffbf114d833ca498c0ff1fbffa0302, type: 3}
+  crashSFX: {fileID: 8300000, guid: 44ffbf114d833ca498c0ff1fbffa0302, type: 3}
 --- !u!82 &117036689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

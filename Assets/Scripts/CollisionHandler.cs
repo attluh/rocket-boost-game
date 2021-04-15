@@ -8,13 +8,19 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip successSFX;
     [SerializeField] AudioClip crashSFX;
     AudioSource audioSource;
+    bool isTransitioning = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other)
+    {
+        // Prevent any collision actions if the player
+        // is transitioning between levels
+        if (isTransitioning) { return; }
+
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -59,8 +65,10 @@ public class CollisionHandler : MonoBehaviour
         // todo: add particle effect upon crash
 
         // Prevent player from moving on the failed level
+        isTransitioning = true;
         GetComponent<Movement>().enabled = false;
 
+        audioSource.Stop();
         audioSource.PlayOneShot(crashSFX);
 
         // After a brief pause, reload the level
@@ -70,8 +78,10 @@ public class CollisionHandler : MonoBehaviour
     void StartSuccessSequence()
     {
         // Prevent player from moving on the completed level
+        isTransitioning = true;
         GetComponent<Movement>().enabled = false;
 
+        audioSource.Stop();
         audioSource.PlayOneShot(successSFX);
 
         // After a brief pause, load the next level
