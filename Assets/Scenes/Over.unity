@@ -268,6 +268,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1159820419878355638, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
   m_PrefabInstance: {fileID: 1000676984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &445552401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5215207995707274901, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
+  m_PrefabInstance: {fileID: 1170811336971139288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &445552405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445552401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd66f4f2aa75d418714cd027c2f6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 8, y: 0, z: 0}
+  period: 2
 --- !u!1001 &557085974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1050,7 +1069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428903458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.24, y: 16.78, z: -5.89}
+  m_LocalPosition: {x: 8.49, y: 16.78, z: -5.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1148,7 +1167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531891164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 20.99, z: -6.15}
+  m_LocalPosition: {x: -1.27, y: 20.99, z: -6.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1351,7 +1370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638714024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.39, y: 14.58, z: -6.11}
+  m_LocalPosition: {x: -14.61, y: 14.58, z: -6.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1870,7 +1889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1159820419878355638, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.44
       objectReference: {fileID: 0}
     - target: {fileID: 1159820419878355638, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1910,7 +1929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215207995707274901, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
       propertyPath: m_Name
-      value: Obstacle
+      value: Oscillating Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f4f5180981f2141b19c9e40ebbdce4, type: 3}
